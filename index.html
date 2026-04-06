@@ -873,7 +873,7 @@
 </footer>
 <script>
 // CURSOR
-
+// CURSOR
 const cursor = document.getElementById('cursor');
 const ring = document.getElementById('cursor-ring');
 let mx=0,my=0,rx=0,ry=0;
@@ -898,25 +898,25 @@ document.querySelectorAll('a,button,.btn-gold,.btn-outline,.tag,.service-card,.w
     ring.style.opacity='.5';
   });
 });
-
+ 
 // NAV SCROLL
 const navbar=document.getElementById('navbar');
 window.addEventListener('scroll',()=>{
   navbar.classList.toggle('scrolled', window.scrollY>50);
 });
-
+ 
 // BURGER
 const burger=document.getElementById('burger');
 burger.addEventListener('click',()=>navbar.classList.toggle('open'));
 document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',()=>navbar.classList.remove('open')));
-
+ 
 // SCROLL REVEAL
 const reveals=document.querySelectorAll('.reveal');
 const io=new IntersectionObserver((entries)=>{
   entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); } });
 },{threshold:.12});
 reveals.forEach(r=>io.observe(r));
-
+ 
 // COUNTER ANIMATION
 function animCount(el, target){
   let start=0; const dur=1600;
@@ -1020,6 +1020,12 @@ function showFormError(msg){
   el.style.display='block';
   setTimeout(()=>el.style.display='none', 5000);
 }
+// Parallax hero rings on mouse
+document.addEventListener('mousemove',e=>{
+  const x=(e.clientX/window.innerWidth-.5)*18;
+  const y=(e.clientY/window.innerHeight-.5)*12;
+  document.querySelector('.rings').style.transform=`translateX(calc(-50% + ${x}px)) translateY(${y}px)`;
+});
 </script>
 </body>
 </html>
