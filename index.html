@@ -2,8 +2,11 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Momentix Creation – Your Moments, Forever in Motion</title>
+<link rel="icon" type="image/x-icon" href="favicon.ico">
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=Josefin+Sans:ital,wght@0,100;0,300;0,400;0,600;1,300&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -16,7 +19,7 @@
     --card2: #161616;
     --red: #e03030;
     --white: #f5f0e8;
-    --muted: #6b6358;
+    --muted: #a89880;
     --border: rgba(201,168,76,0.18);
     --glow: rgba(201,168,76,0.12);
   }
@@ -133,7 +136,7 @@
   }
   .hero-sub {
     font-family:'Josefin Sans'; font-weight:100; letter-spacing:.6em;
-    font-size: clamp(.7rem,2vw,1rem); color: var(--gold-dim);
+    font-size: clamp(.7rem,2vw,1rem); color: #b8943a;
     margin-top:4px; text-transform:uppercase;
     animation: fadeSlideUp .9s .15s ease both;
   }
@@ -149,7 +152,7 @@
   .hero-tagline {
     font-family:'Cormorant Garamond'; font-style:italic; font-weight:300;
     font-size: clamp(.95rem,2.5vw,1.3rem);
-    letter-spacing:.3em; color:rgba(245,240,232,.55);
+    letter-spacing:.3em; color:rgba(245,240,232,.80);
     text-transform:uppercase;
     animation: fadeSlideUp .9s .35s ease both;
   }
@@ -198,6 +201,17 @@
     backdrop-filter: blur(18px);
     border-bottom: 1px solid var(--border);
   }
+  .nav-brand {
+    display:flex; align-items:center; gap:10px; text-decoration:none;
+  }
+  .nav-logo-img {
+    height:38px; width:38px; object-fit:contain;
+    filter: brightness(0) saturate(100%) invert(72%) sepia(40%) saturate(600%) hue-rotate(5deg) brightness(95%);
+    transition: filter .3s;
+  }
+  .nav-brand:hover .nav-logo-img {
+    filter: brightness(0) saturate(100%) invert(85%) sepia(50%) saturate(700%) hue-rotate(5deg) brightness(105%);
+  }
   .nav-logo {
     font-family:'Cinzel'; font-weight:600; font-size:1.1rem; letter-spacing:.2em;
     background: linear-gradient(135deg, #e8c96d, #c9a84c);
@@ -228,7 +242,7 @@
   }
   .section-desc {
     font-family:'Cormorant Garamond'; font-style:italic; font-weight:300;
-    font-size:1.1rem; color:rgba(245,240,232,.45); max-width:540px; line-height:1.7;
+    font-size:1.1rem; color:rgba(245,240,232,.70); max-width:540px; line-height:1.7;
   }
 
   /* ── SERVICES ── */
@@ -489,36 +503,7 @@
     section { padding:80px 5%; }
   }
 
-  /* ── STATS BAR ── */
-  #stats {
-    background: linear-gradient(90deg, #0d0d0d, #111100, #0d0d0d);
-    border-top:1px solid var(--border); border-bottom:1px solid var(--border);
-    padding:50px 6%;
-  }
-  .stats-grid {
-    display:grid; grid-template-columns:repeat(4,1fr);
-    gap:2px;
-  }
-  .stat-item {
-    text-align:center; padding:30px 20px;
-    border-right:1px solid var(--border);
-  }
-  .stat-item:last-child { border-right:none; }
-  .stat-num {
-    font-family:'Cinzel'; font-size:clamp(2rem,4vw,3.2rem); font-weight:900;
-    background:linear-gradient(135deg,#e8c96d,#c9a84c);
-    -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
-  }
-  .stat-label {
-    font-family:'Josefin Sans'; font-size:.68rem; letter-spacing:.25em;
-    text-transform:uppercase; color:var(--muted); margin-top:6px;
-  }
-  @media(max-width:700px){
-    .stats-grid { grid-template-columns:repeat(2,1fr); }
-    .stat-item:nth-child(2){ border-right:none; }
-    .stat-item:nth-child(3){ border-top:1px solid var(--border); }
-    .stat-item:nth-child(4){ border-top:1px solid var(--border); border-right:none; }
-  }
+
 
   /* ── MARQUEE ── */
   .marquee-wrap { overflow:hidden; border-top:1px solid var(--border); border-bottom:1px solid var(--border); padding:16px 0; background:var(--dark); }
@@ -610,28 +595,6 @@
     <div class="marquee-item">Real Estate Tours <span class="sep">✦</span></div>
   </div>
 </div>
-
-<!-- STATS -->
-<section id="stats">
-  <div class="stats-grid">
-    <div class="stat-item reveal">
-      <div class="stat-num" data-count="500">0</div>
-      <div class="stat-label">Projects Completed</div>
-    </div>
-    <div class="stat-item reveal" style="transition-delay:.1s">
-      <div class="stat-num" data-count="4">0</div>
-      <div class="stat-label">Years of Excellence</div>
-    </div>
-    <div class="stat-item reveal" style="transition-delay:.2s">
-      <div class="stat-num" data-count="25">0</div>
-      <div class="stat-label">Districts Covered</div>
-    </div>
-    <div class="stat-item reveal" style="transition-delay:.3s">
-      <div class="stat-num" data-count="100">0</div>
-      <div class="stat-label">% Client Satisfaction</div>
-    </div>
-  </div>
-</section>
 
 <!-- SERVICES -->
 <section id="services">
@@ -826,6 +789,14 @@
       </div>
 
       <div class="contact-detail">
+        <div class="detail-icon">✉️</div>
+        <div class="detail-text">
+          <div class="detail-label">Email</div>
+          <a href="mailto:studiomomentix@gmail.com">studiomomentix@gmail.com</a>
+        </div>
+      </div>
+
+      <div class="contact-detail">
         <div class="detail-icon">📍</div>
         <div class="detail-text">
           <div class="detail-label">Base Location</div>
@@ -834,7 +805,7 @@
       </div>
 
       <div class="coverage">
-        <p><strong>Coverage Area —</strong> Available for events across all of Gujarat. DM or call anytime to discuss your project, dates, and packages.</p>
+        <p><strong>Coverage Area —</strong> Available for events across all of Saurashtra. DM or call anytime to discuss your project, dates, and packages.</p>
       </div>
     </div>
 
@@ -847,16 +818,16 @@
           </div>
           <div class="field">
             <label>Phone Number</label>
-            <input type="tel" id="f-phone" placeholder="+91 99999 00000">
+            <input type="tel" id="f-phone" placeholder="+91 9999900000" required>
           </div>
         </div>
         <div class="field">
           <label>Email Address</label>
-          <input type="email" id="f-email" placeholder="hello@yourmail.com">
+          <input type="email" id="f-email" placeholder="hello@yourmail.com" required>
         </div>
         <div class="field">
           <label>Service Required</label>
-          <select id="f-service">
+          <select id="f-service" required>
             <option value="">— Select a Service —</option>
             <option>Events &amp; Functions</option>
             <option>Festival Shoots</option>
@@ -872,13 +843,14 @@
         </div>
         <div class="field">
           <label>Event Date (if applicable)</label>
-          <input type="date" id="f-date">
+          <input type="date" id="f-date" required>
         </div>
         <div class="field">
           <label>Message</label>
           <textarea id="f-msg" placeholder="Tell us about your vision, location, and anything special you'd like us to capture…"></textarea>
         </div>
         <button class="form-submit" onclick="submitForm()">Send Enquiry →</button>
+        <div id="form-error" style="display:none;padding:14px 18px;border:1px solid #e03030;background:rgba(224,48,48,.06);font-family:'Josefin Sans';font-size:.8rem;letter-spacing:.08em;color:#e07070;margin-top:4px;"></div>
         <div id="form-success">✦ &nbsp; Thank you! We'll reach out within 24 hours.</div>
       </div>
     </div>
@@ -895,10 +867,10 @@
     <a href="#contact">Book Shoot</a>
     <a href="tel:+919924823649">Call Now</a>
     <a href="https://instagram.com/momentix_creation" target="_blank">Instagram</a>
+    <a href="mailto:studiomomentix@gmail.com">Email Us</a>
   </div>
   <div class="footer-copy">© 2025 Momentix Creation · Rajkot, Gujarat · Available across Gujarat</div>
 </footer>
-
 <script>
 // CURSOR
 const cursor = document.getElementById('cursor');
@@ -968,27 +940,85 @@ const statObs=new IntersectionObserver(entries=>{
 },{threshold:.5});
 document.querySelectorAll('[data-count]').forEach(el=>statObs.observe(el));
 
-// FORM
+// ── EMAILJS ────────────────────────────────────────────────────────────────
+const EMAILJS_PUBLIC_KEY   = 'Q7lr_DArOQ1w4Igs-';
+const EMAILJS_SERVICE_ID   = 'service_gu0yvma';
+const EMAILJS_NOTIFY_ID    = 'template_65tvi2n';  // email YOU receive
+const EMAILJS_AUTOREPLY_ID = 'template_82f9mda';  // email CUSTOMER receives
+
+(function(){
+  if(typeof emailjs !== 'undefined'){
+    emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+  }
+})();
+
 function submitForm(){
-  const name=document.getElementById('f-name').value.trim();
-  const phone=document.getElementById('f-phone').value.trim();
-  if(!name){ alert('Please enter your name.'); return; }
-  const btn=document.querySelector('.form-submit');
-  btn.style.opacity='.5'; btn.disabled=true;
-  btn.textContent='Sending…';
-  setTimeout(()=>{
-    document.getElementById('contact-form').querySelectorAll('input,textarea,select').forEach(i=>i.value='');
-    btn.style.display='none';
-    document.getElementById('form-success').style.display='block';
-  },1200);
+  const name    = document.getElementById('f-name').value.trim();
+  const phone   = document.getElementById('f-phone').value.trim();
+  const email   = document.getElementById('f-email').value.trim();
+  const service = document.getElementById('f-service').value;
+  const date    = document.getElementById('f-date').value;
+  const msg     = document.getElementById('f-msg').value.trim();
+
+  if(!name){  showFormError('Please enter your name.');         return; }
+  if(!phone){ showFormError('Please enter your phone number.'); return; }
+
+  const btn = document.querySelector('.form-submit');
+  btn.style.opacity='.5'; btn.disabled=true; btn.textContent='Sending…';
+
+  if(typeof emailjs === 'undefined'){
+    console.warn('EmailJS not loaded.');
+    showFormSuccess(btn);
+    return;
+  }
+
+  const notifyParams = {
+    from_name   : name,
+    from_phone  : phone,
+    from_email  : email  || 'Not provided',
+    service_type: service|| 'Not specified',
+    event_date  : date   || 'Not specified',
+    message     : msg    || 'No message',
+    to_email    : 'studiomomentix@gmail.com'
+  };
+
+  const autoReplyParams = {
+    from_name   : name,
+    from_phone  : phone,
+    from_email  : email  || 'Not provided',
+    service_type: service|| 'Not specified',
+    event_date  : date   || 'Not specified',
+    message     : msg    || 'No message'
+  };
+
+  // Step 1: send notification to YOU, then step 2: send auto-reply to CUSTOMER
+  emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_NOTIFY_ID, notifyParams)
+    .then(function(){
+      return emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_AUTOREPLY_ID, autoReplyParams);
+    })
+    .then(function(){
+      showFormSuccess(btn);
+    })
+    .catch(function(err){
+      console.error('EmailJS error:', err);
+      btn.style.opacity='1'; btn.disabled=false; btn.textContent='Send Enquiry →';
+      showFormError('Something went wrong. Please call or WhatsApp us directly at 99248 23649.');
+    });
 }
 
-// Parallax hero rings on mouse
-document.addEventListener('mousemove',e=>{
-  const x=(e.clientX/window.innerWidth-.5)*18;
-  const y=(e.clientY/window.innerHeight-.5)*12;
-  document.querySelector('.rings').style.transform=`translateX(calc(-50% + ${x}px)) translateY(${y}px)`;
-});
+function showFormSuccess(btn){
+  document.getElementById('contact-form').querySelectorAll('input,textarea,select').forEach(i=>i.value='');
+  btn.style.display='none';
+  document.getElementById('form-error').style.display='none';
+  document.getElementById('form-success').style.display='block';
+}
+
+function showFormError(msg){
+  const el=document.getElementById('form-error');
+  el.textContent='⚠ ' + msg;
+  el.style.display='block';
+  setTimeout(()=>el.style.display='none', 5000);
+}
 </script>
 </body>
 </html>
