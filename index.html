@@ -3,7 +3,47 @@
 <head>
 <meta charset="UTF-8">
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<!-- ── PRIMARY SEO ── -->
+<meta name="description" content="Momentix Creation – Professional videography in Gujarat. Weddings, Navratri, Drone Aerial, Cinematic Films, Reels & Brand Shoots. Call 99248 23649.">
+<meta name="keywords" content="momentix creation, momentix studio, videography Gujarat, wedding videographer Rajkot, drone videography Gujarat, cinematic wedding film, Navratri shoot Gujarat, reels videographer, pre-wedding film Gujarat, brand video Gujarat">
+<meta name="author" content="Momentix Creation">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://your-netlify-url.netlify.app/">
 
+<!-- ── OPEN GRAPH (WhatsApp / Facebook previews) ── -->
+<meta property="og:title" content="Momentix Creation – Your Moments, Forever in Motion">
+<meta property="og:description" content="Professional videography across Gujarat – Weddings, Drone, Cinematic Films, Reels & Brand Shoots.">
+<meta property="og:image" content="https://your-netlify-url.netlify.app/logo.png">
+<meta property="og:url" content="https://your-netlify-url.netlify.app/">
+<meta property="og:type" content="website">
+
+<!-- ── TWITTER CARD ── -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Momentix Creation – Your Moments, Forever in Motion">
+<meta name="twitter:description" content="Cinematic videography across Gujarat. Book your shoot today.">
+
+<!-- ── LOCAL BUSINESS SCHEMA (tells Google who you are) ── -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Momentix Creation",
+  "description": "Professional videography studio in Gujarat offering weddings, drone aerial, cinematic films, reels, brand shoots and more.",
+  "telephone": "+919924823649",
+  "email": "studiomomentix@gmail.com",
+  "url": "https://your-netlify-url.netlify.app/",
+  "sameAs": ["https://instagram.com/momentix_creation"],
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Rajkot",
+    "addressRegion": "Gujarat",
+    "addressCountry": "IN"
+  },
+  "areaServed": "Gujarat",
+  "priceRange": "₹₹",
+  "image": "https://your-netlify-url.netlify.app/logo.png"
+}
+</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Momentix Creation – Your Moments, Forever in Motion</title>
   <link rel="icon" type="image/x-icon" href="favicon.ico">
@@ -191,7 +231,7 @@
 
   /* ── NAV ── */
   nav {
-    position: fixed; top:0; left:0; right:0; z-index: 1000;
+    position: fixed; top:0; left:0; right:0; z-index: 9050;
     padding: 18px 5%;
     display:flex; align-items:center; justify-content:space-between;
     transition: background .4s, backdrop-filter .4s;
@@ -476,23 +516,62 @@
   .reveal { opacity:0; transform:translateY(40px); transition:opacity .8s ease, transform .8s ease; }
   .reveal.visible { opacity:1; transform:translateY(0); }
 
-  /* ── MOBILE ── */
+ /* ── MOBILE ── */
   @media(max-width:900px){
     .why-grid { grid-template-columns:1fr; }
     .contact-grid { grid-template-columns:1fr; gap:50px; }
     .form-row { grid-template-columns:1fr; }
-    .nav-links { display:none; }
-    .nav-burger { display:flex; }
-    nav.open .nav-links {
-      display:flex; flex-direction:column; position:fixed;
-      inset:0; top:60px; background:rgba(7,7,7,.98);
-      align-items:center; justify-content:center; gap:40px; z-index:999;
+    .nav-links {
+      display:flex; flex-direction:column;
+      position:fixed;
+      top:0; left:0;
+      width:100vw; height:100vh;
+      background:rgba(7,7,7,.98);
+      backdrop-filter:blur(24px);
+      -webkit-backdrop-filter:blur(24px);
+      align-items:center; justify-content:center;
+      gap:36px;
+      z-index:9000;
+      list-style:none;
+      padding:0; margin:0;
+      opacity:0; visibility:hidden;
+      pointer-events:none;
+      transform:translateY(-16px);
+      transition:opacity .35s ease, transform .35s ease, visibility .35s;
     }
-    nav.open .nav-links a { font-size:1rem; }
-    .rec-badge { top:80px; right:60px; }
-    .rings { width:340px; height:340px; }
-    .ring:nth-child(4){ width:280px; height:280px; }
-    .ring:nth-child(5){ width:330px; height:330px; }
+    nav.open .nav-links {
+      opacity:1; visibility:visible;
+      pointer-events:all;
+      transform:translateY(0);
+    }
+    .nav-links a {
+      font-size:1.15rem; letter-spacing:.35em;
+      color:rgba(245,240,232,.75);
+      padding:10px 0;
+      border-bottom:1px solid transparent;
+      transition:color .3s, border-color .3s;
+      display:block; text-align:center;
+    }
+    .nav-links a:hover { color:var(--gold); border-color:var(--gold-dim); }
+    .nav-burger { display:flex; z-index:9100; position:relative; }
+
+    /* Burger → X animation */
+    .nav-burger span { transform-origin:center; transition:.3s; }
+    nav.open .nav-burger span:nth-child(1){
+      transform:translateY(6.5px) rotate(45deg);
+    }
+    nav.open .nav-burger span:nth-child(2){
+      opacity:0; transform:scaleX(0);
+    }
+    nav.open .nav-burger span:nth-child(3){
+      transform:translateY(-6.5px) rotate(-45deg);
+    }
+
+    .rec-badge { display:none; }
+    .rings { width:300px; height:300px; }
+    .ring:nth-child(4){ width:260px; height:260px; }
+    .ring:nth-child(5){ width:295px; height:295px; }
+    .nav-logo-img { height:30px; width:30px; }
   }
   @media(max-width:600px){
     .hero-content { padding-top:200px; }
@@ -805,7 +884,7 @@
       </div>
 
       <div class="coverage">
-        <p><strong>Coverage Area —</strong> Available for events across all of Saurashtra. DM or call anytime to discuss your project, dates, and packages.</p>
+        <p><strong>Coverage Area —</strong> Available for events across all of Gujarat. DM or call anytime to discuss your project, dates, and packages.</p>
       </div>
     </div>
 
@@ -907,8 +986,20 @@ window.addEventListener('scroll',()=>{
  
 // BURGER
 const burger=document.getElementById('burger');
-burger.addEventListener('click',()=>navbar.classList.toggle('open'));
-document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',()=>navbar.classList.remove('open')));
+burger.addEventListener('click',()=>{
+  navbar.classList.toggle('open');
+  document.body.style.overflow = navbar.classList.contains('open') ? 'hidden' : '';
+});
+document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',()=>{
+  navbar.classList.remove('open');
+  document.body.style.overflow='';
+}));
+document.addEventListener('click',e=>{
+  if(navbar.classList.contains('open') && !navbar.contains(e.target)){
+    navbar.classList.remove('open');
+    document.body.style.overflow='';
+  }
+});
  
 // SCROLL REVEAL
 const reveals=document.querySelectorAll('.reveal');
